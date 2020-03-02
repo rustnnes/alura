@@ -1,11 +1,10 @@
 package br.com.caelum.pm73.dominio;
 
-import java.util.Calendar;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.util.Calendar;
 
 @Entity
 public class Lance {
@@ -20,11 +19,10 @@ public class Lance {
 	private Leilao leilao;
 	
 	protected Lance() {}
-	public Lance(Calendar data, Usuario usuario, double valor, Leilao leilao) {
+	public Lance(Calendar data, Usuario usuario, double valor) {
 		this.usuario = usuario;
 		this.data = data;
 		this.valor = valor;
-		this.leilao = leilao;
 	}
 	
 	public double getValor() {

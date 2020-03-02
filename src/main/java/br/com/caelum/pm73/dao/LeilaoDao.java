@@ -1,13 +1,12 @@
 package br.com.caelum.pm73.dao;
 
-import java.util.Calendar;
-import java.util.List;
-
-import org.hibernate.Session;
-
 import br.com.caelum.pm73.dominio.Lance;
 import br.com.caelum.pm73.dominio.Leilao;
 import br.com.caelum.pm73.dominio.Usuario;
+import org.hibernate.Session;
+
+import java.util.Calendar;
+import java.util.List;
 
 public class LeilaoDao {
 
@@ -58,7 +57,7 @@ public class LeilaoDao {
 	public List<Leilao> disputadosEntre(double inicio, double fim) {
 		return session.createQuery("from Leilao l where l.valorInicial " +
 				"between :inicio and :fim and l.encerrado = false " +
-				"and size(l.lances) > 3")
+				"and size(l.lances) >= 3")
 				.setParameter("inicio", inicio)
 				.setParameter("fim", fim)
 				.list();
