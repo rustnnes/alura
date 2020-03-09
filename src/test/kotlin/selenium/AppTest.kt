@@ -1,0 +1,45 @@
+package selenium
+
+import org.junit.jupiter.api.*
+import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.WebElement
+import org.openqa.selenium.firefox.FirefoxDriver
+
+class AppTest {
+    companion object {
+        lateinit var driver: FirefoxDriver
+
+        @JvmStatic @BeforeAll
+        fun hiAll(){
+            System.setProperty("webdriver.chrome.driver",
+                    this::class.java.classLoader!!.getResource("chromedriver")!!.path)
+            System.setProperty("webdriver.gecko.driver",
+                    this::class.java.classLoader!!.getResource("geckodriver")!!.path)
+        }
+    }
+
+    @BeforeEach fun hiEach(){ driver = FirefoxDriver() }
+
+    @AfterEach fun byeEach(){ driver.quit() }
+
+    @Test
+    fun testAppHasAGreeting() {
+        val classUnderTest = App()
+        Assertions.assertNotNull(classUnderTest.greeting, "app should have a greeting")
+    }
+
+    @Test fun goGoogle(){
+        driver.get("http://www.google.com.br/")
+        val query: WebElement = driver.findElement(By.name("q"))
+        query.sendKeys("Caelum")
+        query.submit()
+    }
+
+    @Test fun goBing(){
+        driver.get("http://www.bing.com/")
+        val query: WebElement = driver.findElement(By.name("q"))
+        query.sendKeys("Caelum")
+        query.submit()
+    }
+}
