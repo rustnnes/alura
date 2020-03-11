@@ -6,23 +6,7 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.firefox.FirefoxDriver
 
-class AppTest {
-    companion object {
-        lateinit var driver: FirefoxDriver
-
-        @JvmStatic @BeforeAll
-        fun hiAll(){
-            System.setProperty("webdriver.chrome.driver",
-                    this::class.java.classLoader!!.getResource("chromedriver")!!.path)
-            System.setProperty("webdriver.gecko.driver",
-                    this::class.java.classLoader!!.getResource("geckodriver")!!.path)
-        }
-    }
-
-    @BeforeEach fun hiEach(){ driver = FirefoxDriver() }
-
-    @AfterEach fun byeEach(){ driver.quit() }
-
+class AppTest: BaseTest() {
     @Test
     fun testAppHasAGreeting() {
         val classUnderTest = App()
