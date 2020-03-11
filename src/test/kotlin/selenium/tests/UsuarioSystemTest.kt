@@ -8,23 +8,12 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 import selenium.pages.UsuariosPage
 
-class UsuarioSystemTest {
-    private lateinit var driver: WebDriver
+class UsuarioSystemTest: BaseTest() {
     private lateinit var usuariosPage: UsuariosPage
-
-    @BeforeEach
-    fun hiEach() {
-        driver = FirefoxDriver()
-        usuariosPage = UsuariosPage(driver)
-    }
-
-    @AfterEach
-    fun encerra() {
-        driver.close()
-    }
 
     @Test
     fun deveAdicionarUmUsuario() {
+        usuariosPage = UsuariosPage(driver)
         usuariosPage.visita()
         usuariosPage.novo()
                 .cadastra("Ronaldo Luiz de Albuquerque", "ronaldo2009@terra.com.br")

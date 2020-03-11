@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver
 
 internal class UsuariosPage(private val driver: WebDriver) {
     fun visita() {
-        driver.get("localhost:8080/usuarios")
+        driver.get("http://localhost:8080/usuarios")
     }
 
     fun novo(): NovoUsuarioPage {
