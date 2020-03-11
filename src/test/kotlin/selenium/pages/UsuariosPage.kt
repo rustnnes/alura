@@ -4,7 +4,7 @@ import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 
 
-internal class UsuariosPage(private val driver: WebDriver) {
+class UsuariosPage(private val driver: WebDriver) {
     fun visita() {
         driver.get("localhost:8080/usuarios")
     }
