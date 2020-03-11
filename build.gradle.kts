@@ -67,3 +67,16 @@ tasks.test {
 tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions.jvmTarget = "1.8"
 }
+
+tasks.clean{
+    listOf(
+            "${rootDir}/app/db",
+            "${rootDir}/app/target",
+            "${rootDir}/app/lib",
+            "${rootDir}/app/src/main/webapp/WEB-INF/classes",
+            "${rootDir}/app/src/main/webapp/WEB-INF/lib"
+    ).forEach{
+        println("Deleting folder " + it + "...")
+        delete(it)
+    }
+}
