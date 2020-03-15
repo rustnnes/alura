@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.firefox.FirefoxDriver
 import selenium.App
 
+@Disabled
 class AppTest: BaseTest() {
     @Test
     fun testAppHasAGreeting() {

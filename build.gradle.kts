@@ -16,6 +16,9 @@ plugins {
 repositories {
     jcenter()
     mavenCentral()
+    maven {
+        url = uri("https://dl.bintray.com/serpro69/maven/")
+    }
 }
 
 dependencies {
@@ -40,6 +43,8 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
      testImplementation (group = "org.seleniumhq.selenium", name = "selenium-java", version = "3.141.59")
+
+    implementation (group = "io.github.serpro69", name = "kotlin-faker",version = "1.1")
 
     // implementation ("com.google.guava:guava:28.1-jre")
 

@@ -1,6 +1,8 @@
 package selenium.tests
 
-import org.junit.jupiter.api.*
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 
@@ -17,7 +19,10 @@ open class BaseTest {
         }
     }
 
-    @BeforeEach fun hiEach(){ driver = FirefoxDriver() }
+    @BeforeEach fun hiEach() {
+        driver = FirefoxDriver()
+        driver.get("http://localhost:8080/apenas-teste/limpa");
+    }
 
     @AfterEach fun byeEach(){ driver.quit() }
 }
