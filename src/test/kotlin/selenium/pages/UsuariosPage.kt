@@ -3,11 +3,14 @@ package selenium.pages
 import org.openqa.selenium.Alert
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
+import selenium.utils.URLDaAplicacao
 
 
 class UsuariosPage(driver: WebDriver) : BasePage(driver) {
     fun visita() {
-        driver.get("http://localhost:8080/usuarios")
+        driver.get(URLDaAplicacao.getUrlBase() + "/usuarios")
+
+//        driver.get("http://localhost:8080/usuarios")
     }
 
     fun novo(): NovoUsuarioPage {
